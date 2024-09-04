@@ -1,9 +1,17 @@
-export default function User({ name, mail, image }) {
+export default function User({ user }) {
   return (
-    <div className="user--card">
-      <img width={200} src={image} alt={name} />
-      <h1>Hello! {name}</h1>
-      <p>Your email is: {mail}</p>
+    <div className="user-card">
+      <img
+        src={
+          user.image || "https://placehold.co/600x400?text=Error+loading+image"
+        }
+        alt={user.name}
+      />
+      <h2>{user.name}</h2>
+      <p className="title">{user.title}</p>
+      <p>
+        <a href={`mailto:${user.mail}`}>{user.mail}</a>
+      </p>
     </div>
   );
 }
